@@ -24,7 +24,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -162,15 +161,84 @@ private fun DavaTheme(amoled: Boolean, content: @Composable () -> Unit) {
 
 @Composable
 private fun ThreeCrescents(modifier: Modifier = Modifier) {
-    val cutout = MaterialTheme.colorScheme.background
+    val emblemRed = Color(0xFFED1C24)
+
     Canvas(modifier) {
-        fun crescent(center: Offset, radius: Float) {
-            drawCircle(Gold, radius, center)
-            drawCircle(cutout, radius * 0.88f, center + Offset(radius * 0.38f, -radius * 0.05f))
+
+        // Kırmızı yuvarlak zemin
+        val outerRadius = size.minDimension * 0.48f
+        val center = Offset(size.width / 2f, size.height / 2f)
+
+        drawCircle(
+            color = emblemRed,
+            radius = outerRadius,
+            center = center
+        )
+
+        // Beyaz çift çember
+        drawCircle(
+            color = Color.White,
+            radius = size.minDimension * 0.435f,
+            center = center,
+            style = Stroke(width = size.minDimension * 0.018f)
+        )
+
+        drawCircle(
+            color = Color.White,
+            radius = size.minDimension * 0.405f,
+            center = center,
+            style = Stroke(width = size.minDimension * 0.008f)
+        )
+
+        // Sağa bakan hilal
+        fun crescent(
+            cx: Float,
+            cy: Float,
+            radius: Float
+        ) {
+            val crescentCenter = Offset(
+                size.width * cx,
+                size.height * cy
+            )
+
+            drawCircle(
+                color = Color.White,
+                radius = radius,
+                center = crescentCenter
+            )
+
+            // Kırmızı kesik sağa kaydırılır.
+            // Böylece bütün hilaller sağa bakar.
+            drawCircle(
+                color = emblemRed,
+                radius = radius * 0.82f,
+                center = crescentCenter + Offset(
+                    radius * 0.43f,
+                    -radius * 0.03f
+                )
+            )
         }
-        crescent(Offset(size.width * .28f, size.height * .42f), size.minDimension * .18f)
-        crescent(Offset(size.width * .56f, size.height * .30f), size.minDimension * .18f)
-        crescent(Offset(size.width * .70f, size.height * .62f), size.minDimension * .18f)
+
+        val r = size.minDimension * 0.155f
+
+        // Referanstaki üçlü yerleşim
+        crescent(
+            cx = 0.40f,
+            cy = 0.34f,
+            radius = r
+        )
+
+        crescent(
+            cx = 0.66f,
+            cy = 0.50f,
+            radius = r
+        )
+
+        crescent(
+            cx = 0.40f,
+            cy = 0.67f,
+            radius = r
+        )
     }
 }
 
