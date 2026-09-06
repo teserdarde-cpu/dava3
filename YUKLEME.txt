@@ -1,0 +1,19 @@
+DAVA3 - GITHUB YUKLEME
+
+1) Bu ZIP'i bilgisayarda klasöre çıkar.
+2) dava3 reposunda Add file > Upload files ekranını aç.
+3) Windows Gezgini'nde çıkarılan klasörün İÇİNİ aç.
+4) Şu öğeleri birlikte sürükleyip GitHub sayfasına bırak:
+   .github klasörü
+   app klasörü
+   build.gradle.kts
+   gradle.properties
+   settings.gradle.kts
+   README.md
+   YUKLEME.txt
+5) Commit changes.
+
+ÖNEMLİ: MainActivity.kt, AndroidManifest.xml vb. dosyalar repo ana ekranında tek tek görünmemeli.
+Repo ana ekranında .github/ ve app/ klasörleri görünmeli.
+
+Actions > Build DAVA3 APK çalışınca artifact: DAVA3-debug-apk

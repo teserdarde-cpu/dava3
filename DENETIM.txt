@@ -1,0 +1,22 @@
+DAVA2 DENETIM NOTU
+
+Bu paket önceki DAVA2 paketi yeniden denetlenerek hazırlanmıştır.
+
+Kontrol edilenler:
+- MainActivity -> DavaDatabase metod bağlantıları
+- MainActivity -> Prefs metod bağlantıları
+- FollowUp ve Project model parametreleri
+- XML kaynaklarının parse edilmesi
+- Kotlin dosyalarında parantez/süslü parantez dengesi
+- GitHub Actions YAML sözdizimi
+- APK artifact yolu
+
+Önemli düzeltmeler:
+- Compose Modifier.weight importu eklendi.
+- Eski blank.yml boş workflow olmaktan çıkarıldı.
+- blank.yml ve build-apk.yml artık ikisi de gerçek APK derlemesi yapıyor.
+- Artifact bulunamazsa workflow hata verecek; sahte Success oluşmayacak.
+- ZIP repo kökü şeklinde hazırlandı; içinde ekstra DAVA2 üst klasörü yok.
+
+Beklenen artifact:
+DAVA2-debug-apk -> app-debug.apk

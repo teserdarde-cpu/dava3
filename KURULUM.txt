@@ -1,0 +1,18 @@
+DAVA2 - TEK SEFERDE GITHUB YUKLEME
+
+Bu paket REPO KOKU olarak hazirlandi. ZIP'i acinca gordugun dosya ve klasorler dogrudan GitHub reposunun ana dizinine gelmelidir.
+
+Repo kokunde sunlar gorunmeli:
+- app/
+- .github/
+- build.gradle.kts
+- settings.gradle.kts
+- gradle.properties
+
+.github/workflows altinda iki workflow vardir:
+- build-apk.yml
+- blank.yml
+
+Ikisi de ayni isi yapar: Android APK'yi derler ve DAVA2-debug-apk artifact'i uretir. Boylece onceki blank.yml dosyasi kalmis olsa bile bos workflow calismaz.
+
+Basarili derlemede Actions ekraninda Artifacts bolumunde DAVA2-debug-apk gorunur. ZIP'in icindeki app-debug.apk kurulacak APK'dir.
